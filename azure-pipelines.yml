@@ -1,0 +1,23 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+name: $(date:yyyyMMdd)$(rev:.r)
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+  - checkout: self
+  - task: Docker@1
+    displayName: Build an image
+    inputs:
+      azureSubscriptionEndpoint: ffdf37e2-c79b-41c8-a087-f10b7424ec9f
+      azureContainerRegistry: myacr192.azurecr.io
+      buildContext: '**'
+  - task: Docker@1
+    displayName: Push an image
+    inputs:
+      azureSubscriptionEndpoint: ffdf37e2-c79b-41c8-a087-f10b7424ec9f
+      azureContainerRegistry: myacr192.azurecr.io
