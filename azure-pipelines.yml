@@ -7,7 +7,7 @@ jobs:
 - job: Job_1
   displayName: Agent job 1
   pool:
-    vmImage: ubuntu-16.04
+    vmImage: ubuntu-18.04
   steps:
   - checkout: self
   - task: Docker@1
@@ -21,3 +21,5 @@ jobs:
     inputs:
       azureSubscriptionEndpoint: ffdf37e2-c79b-41c8-a087-f10b7424ec9f
       azureContainerRegistry: myacr192.azurecr.io
+      command: Push an image
+...
