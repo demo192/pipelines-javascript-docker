@@ -15,13 +15,11 @@ jobs:
     inputs:
       azureSubscriptionEndpoint: ffdf37e2-c79b-41c8-a087-f10b7424ec9f
       azureContainerRegistry: myacr192.azurecr.io
-      imageName: pipelines-javascript-docker:$(Build.BuildId)
       buildContext: '**'
   - task: Docker@1
     displayName: Push an image
     inputs:
       azureSubscriptionEndpoint: ffdf37e2-c79b-41c8-a087-f10b7424ec9f
       azureContainerRegistry: myacr192.azurecr.io
-      imageName: pipelines-javascript-docker:$(Build.BuildId)
       command: Push an image
 ...
